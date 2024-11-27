@@ -1279,6 +1279,14 @@ class SeriesGroupBy(GroupBy[Series]):
             "skew", alt=alt, skipna=skipna, numeric_only=numeric_only, **kwargs
         )
 
+    @doc(Series.kurt.__doc__)
+    def kurt(self, skipna=True, numeric_only=False, **kwargs) -> Series:
+        return self._op_via_apply(
+            "kurt", skipna=skipna, numeric_only=numeric_only, **kwargs
+        )
+
+    kurtosis = kurt
+
     @property
     @doc(Series.plot.__doc__)
     def plot(self) -> GroupByPlot:
@@ -2904,6 +2912,14 @@ class DataFrameGroupBy(GroupBy[DataFrame]):
         return self._cython_agg_general(
             "skew", alt=alt, skipna=skipna, numeric_only=numeric_only, **kwargs
         )
+
+    @doc(DataFrame.kurt.__doc__)
+    def kurt(self, skipna=True, numeric_only=False, **kwargs) -> Series:
+        return self._op_via_apply(
+            "kurt", skipna=skipna, numeric_only=numeric_only, **kwargs
+        )
+
+    kurtosis = kurt
 
     @property
     @doc(DataFrame.plot.__doc__)

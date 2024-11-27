@@ -74,6 +74,8 @@ def test_tab_completion(multiindex_dataframe_random_data):
         "all",
         "shift",
         "skew",
+        "kurt",
+        "kurtosis",
         "take",
         "pct_change",
         "any",

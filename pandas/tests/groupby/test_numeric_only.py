@@ -244,6 +244,7 @@ class TestNumericOnly:
         ("quantile", True),
         ("sem", True),
         ("skew", True),
+        ("kurt", True),
         ("std", True),
         ("sum", True),
         ("var", True),
@@ -410,6 +411,8 @@ def test_deprecate_numeric_only_series(dtype, groupby_func, request):
         "quantile",
         "sem",
         "skew",
+        "kurt",
+        "kurtosis",
         "std",
         "sum",
         "var",
@@ -429,6 +432,7 @@ def test_deprecate_numeric_only_series(dtype, groupby_func, request):
                 "Series.skew does not allow numeric_only=True with non-numeric",
                 "cum(sum|prod|min|max) is not supported for object dtype",
                 r"Cannot use numeric_only=True with SeriesGroupBy\..* and non-numeric",
+                "kurt does not allow numeric_only=True with non-numeric dtypes",
             ]
         )
         with pytest.raises(TypeError, match=msg):

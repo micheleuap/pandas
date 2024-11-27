@@ -1114,6 +1114,7 @@ def test_apply_to_nullable_integer_returns_float(values, function):
         "median",
         "mean",
         "skew",
+        "kurt",
         "std",
         "var",
         "sem",
